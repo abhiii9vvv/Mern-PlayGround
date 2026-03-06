@@ -1,1 +1,32 @@
 <!-- TODO: Create a copy-to-clipboard button -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>copyToClipboard</title>
+  </head>
+  <body>
+    <input id="source" type="text" placeholder="please enter the text" />
+    <button type="button" id="copyBtn">Copy</button>
+  </body>
+
+  <script>
+    const input = document.getElementById("source");
+    const btn = document.getElementById("copyBtn");
+
+    btn.addEventListener("click", () => {
+      input.select();
+
+      navigator.clipboard
+        .writeText(input.value)
+        .then(() => {
+          btn.textContent = "Copied!";
+          setTimeout(() => (btn.textContent = "copy"), 1000);
+        })
+        .catch((err) => {
+          console.log("failed", err);
+        });
+    });
+  </script>
+</html>

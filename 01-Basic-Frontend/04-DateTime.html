@@ -1,1 +1,25 @@
 <!-- TODO: Show current date and time when clicking a button -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date-Time</title>
+</head>
+<body>
+    <button id="btn">Tap</button>
+    <div id="detail""></div>
+</body>
+
+<script>
+    const btn=document.getElementById("btn");
+    const detail=document.getElementById("detail");
+
+    btn.addEventListener("click",()=>{
+        const now=new Date();
+
+        detail.textContent=now.toLocaleString();
+    })
+</script>
+</html>

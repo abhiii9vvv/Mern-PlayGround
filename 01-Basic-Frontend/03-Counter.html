@@ -1,1 +1,50 @@
 <!-- TODO: Build a counter (+ / - buttons) -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter</title>
+  </head>
+
+  <style>
+    body{
+        display: flex;
+        align-items: center;
+    }
+
+    button{
+        padding: 10px 20px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    span{
+        font-size: 20px;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <button id="dec">&minus;</button>
+      <span id="count">0</span>
+      <button id="inc">&plus;</button>
+    </div>
+  </body>
+
+  <script>
+    let counter=0;
+
+    const inc = document.getElementById("inc");
+    const dec = document.getElementById("dec");
+    const count = document.getElementById("count");
+
+    inc.addEventListener("click",()=>{
+        counter++;
+        count.textContent=counter;
+    })
+
+    dec.addEventListener("click",()=>{
+        counter--;
+        count.textContent=counter;
+    })
+  </script>
+</html>
