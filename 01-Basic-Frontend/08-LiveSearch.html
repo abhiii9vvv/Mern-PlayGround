@@ -1,1 +1,128 @@
-<!-- TODO: Build a live search filter for a list -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live Search</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 20px;
+        font-family: "Times New Roman", Times, serif;
+        background-color: #f5f5f5;
+        padding: 20px;
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      input[type="search"] {
+        width: 100%;
+        max-width: 400px;
+        padding: 12px;
+        margin-bottom: 20px;
+        border: 2px solid #ddd;
+        border-radius: 4px;
+        font-size: 16px;
+        transition: border-color 0.3s;
+      }
+
+      input[type="search"]:focus {
+        outline: none;
+        border-color: #4caf50;
+      }
+
+      ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        border: 2px solid #333;
+        border-radius: 4px;
+        gap: 0;
+        padding: 0;
+        background-color: white;
+        max-width: 400px;
+      }
+
+      ul li {
+        padding: 12px 15px;
+        border-bottom: 1px solid #eee;
+        transition: background-color 0.2s;
+      }
+
+      ul li:hover {
+        background-color: #f0f0f0;
+      }
+
+      ul li:last-child {
+        border-bottom: none;
+      }
+
+      #no-results {
+        color: red;
+        font-weight: bold;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Live Search Filter</h1>
+
+      <input
+        type="search"
+        id="search"
+        placeholder="Search items...."
+        autocomplete="off"
+      />
+
+      <ul id="list">
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Orange</li>
+        <li>Mango</li>
+        <li>Pineapple</li>
+        <li>Strawberry</li>
+        <li>Blueberry</li>
+        <li>Watermelon</li>
+        <li>Grapes</li>
+        <li>Peach</li>
+        <li>Kiwi</li>
+        <li>Papaya</li>
+      </ul>
+
+      <p id="no-results" hidden>No Matching Items.</p>
+    </main>
+
+    <script>
+      const input = document.getElementById("search");
+      const items = document.querySelectorAll("#list li");
+      const noResults = document.getElementById("no-results");
+
+      input.addEventListener("input", () => {
+        const searchText = input.value.toLowerCase();
+        let matchFound = false;
+
+        items.forEach((item) => {
+          const text = item.textContent.toLowerCase();
+
+          if (text.includes(searchText)) {
+            item.style.display = "list-item";
+            matchFound = true;
+          } else {
+            item.style.display = "none";
+          }
+        });
+
+        noResults.hidden = matchFound;
+      });
+    </script>
+  </body>
+</html>
