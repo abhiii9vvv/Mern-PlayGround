@@ -1,1 +1,25 @@
 <!-- TODO: Build a character counter for textarea -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Count</title>
+</head>
+<body>
+    <label for="source">Enter text:</label>
+    <input type="text" name="inputText" id="source" placeholder="Type something...">
+    <p>Characters: <span id="count">0</span></p>
+
+</body>
+
+<script>
+    const input=document.getElementById("source");
+    const countDisplay=document.getElementById("count");
+    
+    input.addEventListener("input",function(){
+        countDisplay.textContent=input.value.length;
+    })
+</script>
+
+</html>
