@@ -1,1 +1,28 @@
 <!-- TODO: Toggle dark mode / light mode -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToggleTheme</title>
+  </head>
+  <style>
+    body.dark-mode {
+      background: black;
+      color: #fff;
+    }
+  </style>
+  <body>
+    <button id="btn">Dark Mode</button>
+  </body>
+  <script>
+      const btn = document.getElementById("btn");
+
+      const body = document.body;
+
+      btn.addEventListener("click", () => {
+        body.classList.toggle("dark-mode");
+      });
+    </script>
+</html>
