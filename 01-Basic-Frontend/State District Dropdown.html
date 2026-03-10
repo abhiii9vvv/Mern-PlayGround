@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>State-District Dropdown</title>
+</head>
+<body>
+  <select id="state">
+    <option value="">Select State</option>
+    <option value="Maharashtra">Maharashtra</option>
+    <option value="Gujarat">Gujarat</option>
+  </select>
+
+  <select id="district">
+    <option value="">Select District</option>
+  </select>
+
+  <script>
+    const districts = {
+      Maharashtra: ["Pune", "Mumbai", "Nashik"],
+      Gujarat: ["Surat", "Ahmedabad", "Rajkot"]
+    };
+
+    const state = document.getElementById("state");
+    const district = document.getElementById("district");
+
+    state.onchange = function () {
+      district.innerHTML = '<option value="">Select District</option>'; // reset
+
+      if (!this.value) return;
+
+      for (let d of districts[this.value]) {
+        district.innerHTML += `<option>${d}</option>`;
+      }
+    };
+  </script>
+</body>
+</html>
